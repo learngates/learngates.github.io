@@ -35,26 +35,38 @@
   <center><img src="./img/logo.svg" alt=""></center>
   <div class="flexgrid" style="max-width: 1107px;margin: 0 auto;width: 100%;">
     <div class='container'>
-      <div class='thing'>Yay!</div>
+      <div class='thing flex-col'>
+        <span>WW1</span>
+        <span style="font-size: 15px;
+    font-weight: bold;
+    color: #E91E63;" id="ww1TimeSpan"></span>
+        <span>ago</span>
+
+      </div>
       <div class='thing flex-col'>
         <span>World Population</span>
         <span class="population" id="worldpop"></span>
       </div>
       <div class='thing'><span class="emoji">🙀</span></div>
-      <div class='thing'>Easy!</div>
-      <div class='thing'><span class="emoji">👍</span></div>
-      <div class='thing'>1 of ur 5 a day!<span class="emoji">🍓</span></div>
+      <div class='thing flex-col'>
+        <span>
+          <img src="https://thebulletin.org/wp-content/uploads/2018/05/bulletin-clock-100-r-black-1024x1024.jpg.webp"
+               alt="doomsday clock" style="width: 73px;height: auto;"></span>
+        <span>2020</span>
+        <span style="font-size: 12px;"><a href="https://thebulletin.org/doomsday-clock/">100 Seconds To doomsday according to the scientists</a></span>
+      </div>
+      <div class='thing flex-col'><span>WW2</span><span id="ww2TimeSpan" style="font-size: 12pt;color: #2196F3;"></span></div>
+      <div class='thing flex-col'><span id="xmas" style="font-size: 13pt;"></span><span class="emoji">🎅</span></div>
       <div class='thing'><span class="emoji">🚀</span></div>
-      <div class='thing'>Super good!</div>
-      <div class='thing'>Gives You Health!<span class="emoji">💕</span></div>
-      <div class='thing'><span class="emoji">🔥</span></div>
-      <div class='thing'>Delicious!<span class="emoji">🌭</span></div>
-      <div class='thing'>Win!!<span class="emoji">🏅</span></div>
+      <div class='thing flex-col' style="font-size: 13pt;">
+        <span>New Year's Countdown</span>
+        <span id="newYear"></span>
+      </div>
     </div>
   </div>
 
     <div class="wrapper">
-      <h1>Corona virus tracker, Map and Live Updates.</p>
+      <h1>Corona virus tracker, Map and Live Updates.</h1>
       <div class="iframe-container">
         <iframe src="https://www.bing.com/covid?ref=embedding" frameborder="0"></iframe>
 
@@ -64,11 +76,52 @@
   <script src="js/vendor/modernizr-3.8.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+
+
+  <script src="js/vendor/countdown.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
+
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
+
+    (function () {
+
+      const newYear =
+        countdown(
+          new Date(2021, 0, 1),
+          function(ts) {
+            document.getElementById('newYear').innerHTML = ts.toHTML("strong");
+          },
+          countdown.DAYS| countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+
+      const ww1TimeSpan =
+        countdown(
+          new Date(1917, 0, 1),
+          function(ts) {
+            document.getElementById('ww1TimeSpan').innerHTML = ts.toHTML("strong") + 'to go ';
+          },
+          countdown.DAYS| countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+
+
+      const xmas =
+        countdown(
+          new Date("December 25, 2020"),
+          function(ts) {
+            document.getElementById('xmas').innerHTML = ts.toHTML("strong");
+          },
+          countdown.DAYS| countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+
+      const ww2TimeSpan =
+        countdown(
+          new Date("Sep 1, 1939"),
+      function(ts) {
+            document.getElementById('ww2TimeSpan').innerHTML = ts.toHTML("strong");
+          },
+          countdown.DAYS| countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+
+    })();
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
   </script>

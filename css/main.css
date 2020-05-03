@@ -480,8 +480,8 @@ span.population {}
 }
 
 .flexgrid .thing:hover {
-  -webkit-animation-name: shake;
-  animation-name: shake;
+  /*-webkit-animation-name: shake;*/
+  /*animation-name: shake;*/
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-iteration-count: 1;
